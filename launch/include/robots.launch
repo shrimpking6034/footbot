@@ -1,0 +1,23 @@
+<launch>
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+  <!-- No namespace here as we will share this description. 
+       Access with slash at the beginning -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro.py $(find turtlebot3_description)/urdf/turtlebot3_$(arg model).urdf.xacro" />
+
+  <!-- BEGIN MAIN ROBOT -->
+  <include file="$(find footbot)/launch/include/one_robot.launch" >
+    <arg name="init_pose" value="-x 0 -y 0 -z 0" />
+    <arg name="robot_name"  value="main_robot" />
+  </include>
+
+  <!-- BEGIN SUB ROBOT -->
+  <!-- <group ns="sub_robot">
+    <param name="tf_prefix" value="sub_robot_tf" />
+    <include file="$(find minjunsong_pa2)/launch/one_robot.launch" >
+      <arg name="init_pose" value="-x 0 -y -1 -z 0" />
+      <arg name="robot_name"  value="sub_robot" />
+    </include>
+  </group> -->
+
+</launch>

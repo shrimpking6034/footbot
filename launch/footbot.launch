@@ -1,0 +1,24 @@
+
+
+
+<launch>
+    <!-- turtlebot3 gazebo simulation settings-->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find turtlebot3_gazebo)/worlds/turtlebot3_stage_1.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="0.1"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+
+    <!-- turtlebot3 robot spawn -->
+    <include file="$(find footbot)/launch/include/robots.launch"/>
+
+
+    
+    <!-- dance node-->
+    <!-- <node pkg="footbot" name="main node" type="main.py" output="screen" /> -->
+
+
+</launch>
