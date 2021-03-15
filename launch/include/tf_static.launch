@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_turtlebot1_broadcaster" args="2 2 0 0 0 0 1 world odom" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="ball_broadcaster" args="3.5 0.5 0 0 0 0 1 world ball" />
+</launch>

@@ -1,6 +1,3 @@
-
-
-
 <launch>
     <!-- turtlebot3 gazebo simulation settings-->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -10,15 +7,17 @@
         <arg name="gui" value="true"/>
         <arg name="headless" value="false"/>
         <arg name="debug" value="false"/>
+
     </include>
 
     <!-- turtlebot3 robot spawn -->
     <include file="$(find footbot)/launch/include/robots.launch"/>
+    <include file="$(find footbot)/launch/include/tf_static.launch"/>
 
 
     
-    <!-- dance node-->
-    <!-- <node pkg="footbot" name="main node" type="main.py" output="screen" /> -->
+    <!-- ball follower node-->
+    <node pkg="footbot" name="ball_follower_node" type="ball_follower.py" output="screen" />
 
 
 </launch>
